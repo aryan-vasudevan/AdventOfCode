@@ -1,7 +1,7 @@
 def dfs(grid, row, column):
     path = ["M", "A", "S"]
     directions = [(-1, 0), (1, 0), (0, 1), (0, -1), (1, 1), (1, -1), (-1, -1), (-1, 1)]
-    result = 0
+    res = 0
 
     for direction in directions:
         validPath = True
@@ -18,19 +18,19 @@ def dfs(grid, row, column):
                 break
 
         if validPath:
-            result += 1
+            res += 1
 
-    return result
+    return res
 
 grid = []
 with open("input.txt", "r") as file:
     for line in file:
         grid.append(list(line.strip()))
 
-result = 0
+res = 0
 for row in range(len(grid)):
     for column in range(len(grid[row])):
         if grid[row][column] == "X":
-            result += dfs(grid, row, column)
+            res += dfs(grid, row, column)
 
-print(result)
+print(res)
