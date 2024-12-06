@@ -2,12 +2,12 @@ import re
 
 def processMemory(memory):
     mulPattern = r"mul\((\d+),(\d+)\)"
-    control_pattern = r"do\(\)|don't\(\)"
+    controlPattern = r"do\(\)|don't\(\)"
 
     mulEnabled = True
     total = 0
 
-    for match in re.finditer(f"{mulPattern}|{control_pattern}", memory):
+    for match in re.finditer(f"{mulPattern}|{controlPattern}", memory):
         command = match.group(0)
 
         if command == "do()":
