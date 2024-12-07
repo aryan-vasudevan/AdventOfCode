@@ -36,10 +36,13 @@ for row in range(len(grid)):
 
 inside = True
 directions = [(0, -1), (1, 0), (0, 1), (-1, 0)]
+turns = 0
 curDir = 0
 
 while inside:
     x, y, inside = move(grid, x, y, directions[curDir], inside)
     curDir = (curDir + 1) % 4
+    turns += 1
 
+print(turns//3)
 print(len(seen))
